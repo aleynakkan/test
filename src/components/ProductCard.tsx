@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { Product } from '../types';
 import { HealthScoreCard } from './HealthScoreCard';
+import { NutritionChart } from './NutritionChart';
 
 interface ProductCardProps {
   product: Product;
@@ -29,8 +30,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
       {showFullDetails && (
         <View style={styles.detailsContainer}>
+          <NutritionChart nutritionFacts={product.nutritionFacts} />
+          
           <View style={styles.nutritionSection}>
-            <Text style={styles.sectionTitle}>Nutrition Facts (per 100g)</Text>
+            <Text style={styles.sectionTitle}>Detailed Nutrition Facts (per 100g)</Text>
             <View style={styles.nutritionGrid}>
               <View style={styles.nutritionItem}>
                 <Text style={styles.nutritionLabel}>Calories</Text>
